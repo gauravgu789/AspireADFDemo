@@ -1,0 +1,30 @@
+{
+	"name": "ProccessedData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_Gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "MovieData_@{formatDateTime(utcnow(),'dd-MM-yyy')}.csv",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@{formatDateTime(utcnow(),'yyyy')}/@{formatDateTime(utcnow(),'MMMM')}/@{formatDateTime(utcnow(),'dd-MM-yyyy')}",
+					"type": "Expression"
+				},
+				"fileSystem": "proccessedfiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

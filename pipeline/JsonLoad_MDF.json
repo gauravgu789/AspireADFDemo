@@ -1,0 +1,38 @@
+{
+	"name": "JsonLoad_MDF",
+	"properties": {
+		"activities": [
+			{
+				"name": "JsonLoadTest",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "JsonLoadTest",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"sink1": {
+								"SchemaName": "t",
+								"TableName": "t"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					}
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

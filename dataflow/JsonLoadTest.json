@@ -1,0 +1,32 @@
+{
+	"name": "JsonLoadTest",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_Json_Source",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ASQL_Destination",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Flatten1"
+				}
+			],
+			"script": "source(output(\n\t\tserialNumber as string,\n\t\tpartNumber as string,\n\t\trev as string,\n\t\tsupplierCode as string,\n\t\tstage as string,\n\t\tcreateDate as string,\n\t\tID as string,\n\t\tcreatedBy as string,\n\t\tregion as string,\n\t\tPOnumber as string,\n\t\trework as boolean,\n\t\tnumReworks as string,\n\t\tpass as boolean,\n\t\tfailReason as string,\n\t\tAVIdeviceID as string,\n\t\tsoftwareVersion as string,\n\t\tmagnification as double,\n\t\tpixelSize as double,\n\t\txSensor as string,\n\t\tySensor as string,\n\t\tnotes as string,\n\t\tjobID as string,\n\t\tRFIDtag as string,\n\t\tnumImages as string,\n\t\ttotNumDefects as string,\n\t\ttotNumLT3 as string,\n\t\ttotNum3to5 as string,\n\t\ttotNum5to12 as string,\n\t\ttotNum12to23 as string,\n\t\ttotNum23to93 as string,\n\t\ttotNum93to200 as string,\n\t\ttotNumGT200 as string,\n\t\timageList as (imageNum as string, fileName as string, fileSize as string, imgGlobalX as double, imgGlobalY as double, imgGlobalZ as double, imgGlobalR as double, imgGlobalTheta as double, imgGlobalRx as double, imgGlobalRy as double, imgGlobalRz as double, compressed as boolean, defect as boolean, col as string, row as string, imgNumDefects as string, imgNumLT3 as string, imgNum3to5 as string, imgNum5to12 as string, imgNum12to23 as string, imgNum23to93 as string, imgNum93to200 as string, imgNumGT200 as string, defects as (imageNum as string, defectNum as string, defectType as string, localX as double, localY as double, defGlobalX as double, defGlobalY as double, defGlobalZ as double, defGlobalR as double, defGlobalTheta as double, area as double, zone as string, bin as string, majorLength as double, minorLength as double, boundingRectLeft as double, boundingRectTop as double, boundingRectRight as double, boundingRectBottom as double, perimeter as double, height as double, aspectRatio as double, moment1 as double, moment2 as double)[])[]\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tsingleDocument: true) ~> source1\nsource1 foldDown(unroll(imageList.defects),\n\tmapColumn(\n\t\tserialNumber,\n\t\tpartNumber,\n\t\trev,\n\t\tsupplierCode,\n\t\tstage,\n\t\tcreateDate,\n\t\tID,\n\t\tcreatedBy,\n\t\tregion,\n\t\tPOnumber,\n\t\trework,\n\t\tnumReworks,\n\t\tpass,\n\t\tfailReason,\n\t\tAVIdeviceID,\n\t\tsoftwareVersion,\n\t\tmagnification,\n\t\tpixelSize,\n\t\txSensor,\n\t\tySensor,\n\t\tnotes,\n\t\tjobID,\n\t\tRFIDtag,\n\t\tnumImages,\n\t\ttotNumDefects,\n\t\ttotNumLT3,\n\t\ttotNum3to5,\n\t\ttotNum5to12,\n\t\ttotNum12to23,\n\t\ttotNum23to93,\n\t\ttotNum93to200,\n\t\ttotNumGT200,\n\t\timageNum = imageList.imageNum,\n\t\tfileName = imageList.fileName,\n\t\tfileSize = imageList.fileSize,\n\t\timgGlobalX = imageList.imgGlobalX,\n\t\timgGlobalY = imageList.imgGlobalY,\n\t\timgGlobalZ = imageList.imgGlobalZ,\n\t\timgGlobalR = imageList.imgGlobalR,\n\t\timgGlobalTheta = imageList.imgGlobalTheta,\n\t\timgGlobalRx = imageList.imgGlobalRx,\n\t\timgGlobalRy = imageList.imgGlobalRy,\n\t\timgGlobalRz = imageList.imgGlobalRz,\n\t\tcompressed = imageList.compressed,\n\t\tdefect = imageList.defect,\n\t\tcol = imageList.col,\n\t\trow = imageList.row,\n\t\timgNumDefects = imageList.imgNumDefects,\n\t\timgNumLT3 = imageList.imgNumLT3,\n\t\timgNum3to5 = imageList.imgNum3to5,\n\t\timgNum5to12 = imageList.imgNum5to12,\n\t\timgNum12to23 = imageList.imgNum12to23,\n\t\timgNum23to93 = imageList.imgNum23to93,\n\t\timgNum93to200 = imageList.imgNum93to200,\n\t\timgNumGT200 = imageList.imgNumGT200,\n\t\tdef_imageNum = imageList.defects.imageNum,\n\t\tdefectNum = imageList.defects.defectNum,\n\t\tdefectType = imageList.defects.defectType,\n\t\tlocalX = imageList.defects.localX,\n\t\tlocalY = imageList.defects.localY,\n\t\tdefGlobalX = imageList.defects.defGlobalX,\n\t\tdefGlobalY = imageList.defects.defGlobalY,\n\t\tdefGlobalZ = imageList.defects.defGlobalZ,\n\t\tdefGlobalR = imageList.defects.defGlobalR,\n\t\tdefGlobalTheta = imageList.defects.defGlobalTheta,\n\t\tarea = imageList.defects.area,\n\t\tzone = imageList.defects.zone,\n\t\tbin = imageList.defects.bin,\n\t\tmajorLength = imageList.defects.majorLength,\n\t\tminorLength = imageList.defects.minorLength,\n\t\tboundingRectLeft = imageList.defects.boundingRectLeft,\n\t\tboundingRectTop = imageList.defects.boundingRectTop,\n\t\tboundingRectRight = imageList.defects.boundingRectRight,\n\t\tboundingRectBottom = imageList.defects.boundingRectBottom,\n\t\tperimeter = imageList.defects.perimeter,\n\t\theight = imageList.defects.height,\n\t\taspectRatio = imageList.defects.aspectRatio,\n\t\tmoment1 = imageList.defects.moment1,\n\t\tmoment2 = imageList.defects.moment2\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> Flatten1\nFlatten1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}

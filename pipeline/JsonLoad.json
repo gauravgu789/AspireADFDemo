@@ -1,0 +1,771 @@
+{
+	"name": "JsonLoad",
+	"properties": {
+		"activities": [
+			{
+				"name": "JsonLoad",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['serialNumber']"
+								},
+								"sink": {
+									"name": "serialNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['partNumber']"
+								},
+								"sink": {
+									"name": "partNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['rev']"
+								},
+								"sink": {
+									"name": "rev",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['supplierCode']"
+								},
+								"sink": {
+									"name": "supplierCode",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['stage']"
+								},
+								"sink": {
+									"name": "stage",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['createDate']"
+								},
+								"sink": {
+									"name": "createDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ID']"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['createdBy']"
+								},
+								"sink": {
+									"name": "createdBy",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['region']"
+								},
+								"sink": {
+									"name": "region",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['POnumber']"
+								},
+								"sink": {
+									"name": "POnumber",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['rework']"
+								},
+								"sink": {
+									"name": "rework",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "$['numReworks']"
+								},
+								"sink": {
+									"name": "numReworks",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['pass']"
+								},
+								"sink": {
+									"name": "pass",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "$['failReason']"
+								},
+								"sink": {
+									"name": "failReason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['AVIdeviceID']"
+								},
+								"sink": {
+									"name": "AVIdeviceID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['softwareVersion']"
+								},
+								"sink": {
+									"name": "softwareVersion",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['magnification']"
+								},
+								"sink": {
+									"name": "magnification",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['pixelSize']"
+								},
+								"sink": {
+									"name": "pixelSize",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['xSensor']"
+								},
+								"sink": {
+									"name": "xSensor",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ySensor']"
+								},
+								"sink": {
+									"name": "ySensor",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['notes']"
+								},
+								"sink": {
+									"name": "notes",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['jobID']"
+								},
+								"sink": {
+									"name": "jobID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['RFIDtag']"
+								},
+								"sink": {
+									"name": "RFIDtag",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['numImages']"
+								},
+								"sink": {
+									"name": "numImages",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNumDefects']"
+								},
+								"sink": {
+									"name": "totNumDefects",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNumLT3']"
+								},
+								"sink": {
+									"name": "totNumLT3",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNum3to5']"
+								},
+								"sink": {
+									"name": "totNum3to5",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNum5to12']"
+								},
+								"sink": {
+									"name": "totNum5to12",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNum12to23']"
+								},
+								"sink": {
+									"name": "totNum12to23",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNum23to93']"
+								},
+								"sink": {
+									"name": "totNum23to93",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNum93to200']"
+								},
+								"sink": {
+									"name": "totNum93to200",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['totNumGT200']"
+								},
+								"sink": {
+									"name": "totNumGT200",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imageNum']"
+								},
+								"sink": {
+									"name": "imageNum",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['fileName']"
+								},
+								"sink": {
+									"name": "fileName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['fileSize']"
+								},
+								"sink": {
+									"name": "fileSize",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalX']"
+								},
+								"sink": {
+									"name": "imgGlobalX",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalY']"
+								},
+								"sink": {
+									"name": "imgGlobalY",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalZ']"
+								},
+								"sink": {
+									"name": "imgGlobalZ",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalR']"
+								},
+								"sink": {
+									"name": "imgGlobalR",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalTheta']"
+								},
+								"sink": {
+									"name": "imgGlobalTheta",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalRx']"
+								},
+								"sink": {
+									"name": "imgGlobalRx",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalRy']"
+								},
+								"sink": {
+									"name": "imgGlobalRy",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgGlobalRz']"
+								},
+								"sink": {
+									"name": "imgGlobalRz",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['compressed']"
+								},
+								"sink": {
+									"name": "compressed",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defect']"
+								},
+								"sink": {
+									"name": "defect",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['col']"
+								},
+								"sink": {
+									"name": "col",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['row']"
+								},
+								"sink": {
+									"name": "row",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNumDefects']"
+								},
+								"sink": {
+									"name": "imgNumDefects",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNumLT3']"
+								},
+								"sink": {
+									"name": "imgNumLT3",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNum3to5']"
+								},
+								"sink": {
+									"name": "imgNum3to5",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNum5to12']"
+								},
+								"sink": {
+									"name": "imgNum5to12",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNum12to23']"
+								},
+								"sink": {
+									"name": "imgNum12to23",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNum23to93']"
+								},
+								"sink": {
+									"name": "imgNum23to93",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNum93to200']"
+								},
+								"sink": {
+									"name": "imgNum93to200",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['imgNumGT200']"
+								},
+								"sink": {
+									"name": "imgNumGT200",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['imageNum']"
+								},
+								"sink": {
+									"name": "def_imageNum",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defectNum']"
+								},
+								"sink": {
+									"name": "defectNum",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defectType']"
+								},
+								"sink": {
+									"name": "defectType",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['localX']"
+								},
+								"sink": {
+									"name": "localX",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['localY']"
+								},
+								"sink": {
+									"name": "localY",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defGlobalX']"
+								},
+								"sink": {
+									"name": "defGlobalX",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defGlobalY']"
+								},
+								"sink": {
+									"name": "defGlobalY",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defGlobalZ']"
+								},
+								"sink": {
+									"name": "defGlobalZ",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defGlobalR']"
+								},
+								"sink": {
+									"name": "defGlobalR",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['defGlobalTheta']"
+								},
+								"sink": {
+									"name": "defGlobalTheta",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['area']"
+								},
+								"sink": {
+									"name": "area",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['zone']"
+								},
+								"sink": {
+									"name": "zone",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['bin']"
+								},
+								"sink": {
+									"name": "bin",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['majorLength']"
+								},
+								"sink": {
+									"name": "majorLength",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['minorLength']"
+								},
+								"sink": {
+									"name": "minorLength",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['boundingRectLeft']"
+								},
+								"sink": {
+									"name": "boundingRectLeft",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['boundingRectTop']"
+								},
+								"sink": {
+									"name": "boundingRectTop",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['boundingRectRight']"
+								},
+								"sink": {
+									"name": "boundingRectRight",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['boundingRectBottom']"
+								},
+								"sink": {
+									"name": "boundingRectBottom",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['perimeter']"
+								},
+								"sink": {
+									"name": "perimeter",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['height']"
+								},
+								"sink": {
+									"name": "height",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['aspectRatio']"
+								},
+								"sink": {
+									"name": "aspectRatio",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['moment1']"
+								},
+								"sink": {
+									"name": "moment1",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['imageList'][0]['defects'][0]['moment2']"
+								},
+								"sink": {
+									"name": "moment2",
+									"type": "Decimal"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ADLS_Json_Source",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ASQL_Destination",
+						"type": "DatasetReference",
+						"parameters": {
+							"SchemaName": "t",
+							"TableName": "t"
+						}
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

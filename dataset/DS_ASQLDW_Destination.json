@@ -1,0 +1,17 @@
+{
+	"name": "DS_ASQLDW_Destination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQLDW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MoviesData_1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

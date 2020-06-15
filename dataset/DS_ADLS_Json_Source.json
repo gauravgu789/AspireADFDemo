@@ -1,0 +1,277 @@
+{
+	"name": "DS_ADLS_Json_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_Gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "testJson.json",
+				"fileSystem": "inputfiles"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"serialNumber": {
+					"type": "string"
+				},
+				"partNumber": {
+					"type": "string"
+				},
+				"rev": {
+					"type": "string"
+				},
+				"supplierCode": {
+					"type": "integer"
+				},
+				"stage": {
+					"type": "string"
+				},
+				"createDate": {
+					"type": "string"
+				},
+				"ID": {
+					"type": "string"
+				},
+				"createdBy": {
+					"type": "string"
+				},
+				"region": {
+					"type": "string"
+				},
+				"POnumber": {
+					"type": "integer"
+				},
+				"rework": {
+					"type": "boolean"
+				},
+				"numReworks": {
+					"type": "integer"
+				},
+				"pass": {
+					"type": "boolean"
+				},
+				"failReason": {
+					"type": "string"
+				},
+				"AVIdeviceID": {
+					"type": "string"
+				},
+				"softwareVersion": {
+					"type": "string"
+				},
+				"magnification": {
+					"type": "number"
+				},
+				"pixelSize": {
+					"type": "number"
+				},
+				"xSensor": {
+					"type": "integer"
+				},
+				"ySensor": {
+					"type": "integer"
+				},
+				"notes": {
+					"type": "string"
+				},
+				"jobID": {
+					"type": "string"
+				},
+				"RFIDtag": {
+					"type": "string"
+				},
+				"numImages": {
+					"type": "integer"
+				},
+				"totNumDefects": {
+					"type": "integer"
+				},
+				"totNumLT3": {
+					"type": "integer"
+				},
+				"totNum3to5": {
+					"type": "integer"
+				},
+				"totNum5to12": {
+					"type": "integer"
+				},
+				"totNum12to23": {
+					"type": "integer"
+				},
+				"totNum23to93": {
+					"type": "integer"
+				},
+				"totNum93to200": {
+					"type": "integer"
+				},
+				"totNumGT200": {
+					"type": "integer"
+				},
+				"imageList": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"imageNum": {
+								"type": "integer"
+							},
+							"fileName": {
+								"type": "string"
+							},
+							"fileSize": {
+								"type": "integer"
+							},
+							"imgGlobalX": {
+								"type": "number"
+							},
+							"imgGlobalY": {
+								"type": "number"
+							},
+							"imgGlobalZ": {
+								"type": "number"
+							},
+							"imgGlobalR": {
+								"type": "number"
+							},
+							"imgGlobalTheta": {
+								"type": "number"
+							},
+							"imgGlobalRx": {
+								"type": "number"
+							},
+							"imgGlobalRy": {
+								"type": "number"
+							},
+							"imgGlobalRz": {
+								"type": "number"
+							},
+							"compressed": {
+								"type": "boolean"
+							},
+							"defect": {
+								"type": "boolean"
+							},
+							"col": {
+								"type": "integer"
+							},
+							"row": {
+								"type": "integer"
+							},
+							"imgNumDefects": {
+								"type": "integer"
+							},
+							"imgNumLT3": {
+								"type": "integer"
+							},
+							"imgNum3to5": {
+								"type": "integer"
+							},
+							"imgNum5to12": {
+								"type": "integer"
+							},
+							"imgNum12to23": {
+								"type": "integer"
+							},
+							"imgNum23to93": {
+								"type": "integer"
+							},
+							"imgNum93to200": {
+								"type": "integer"
+							},
+							"imgNumGT200": {
+								"type": "integer"
+							},
+							"defects": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"imageNum": {
+											"type": "integer"
+										},
+										"defectNum": {
+											"type": "integer"
+										},
+										"defectType": {
+											"type": "integer"
+										},
+										"localX": {
+											"type": "number"
+										},
+										"localY": {
+											"type": "number"
+										},
+										"defGlobalX": {
+											"type": "number"
+										},
+										"defGlobalY": {
+											"type": "number"
+										},
+										"defGlobalZ": {
+											"type": "number"
+										},
+										"defGlobalR": {
+											"type": "number"
+										},
+										"defGlobalTheta": {
+											"type": "number"
+										},
+										"area": {
+											"type": "number"
+										},
+										"zone": {
+											"type": "integer"
+										},
+										"bin": {
+											"type": "integer"
+										},
+										"majorLength": {
+											"type": "number"
+										},
+										"minorLength": {
+											"type": "number"
+										},
+										"boundingRectLeft": {
+											"type": "number"
+										},
+										"boundingRectTop": {
+											"type": "number"
+										},
+										"boundingRectRight": {
+											"type": "number"
+										},
+										"boundingRectBottom": {
+											"type": "number"
+										},
+										"perimeter": {
+											"type": "number"
+										},
+										"height": {
+											"type": "number"
+										},
+										"aspectRatio": {
+											"type": "number"
+										},
+										"moment1": {
+											"type": "number"
+										},
+										"moment2": {
+											"type": "number"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

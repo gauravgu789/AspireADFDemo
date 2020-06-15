@@ -1,0 +1,17 @@
+{
+	"name": "LS_FileSystem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "D:\\Aspire_ADF_Demo",
+			"userId": "Gaurav Gupta",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzOThhZmJmMC00ZGQ5LTQzZjYtYjZlMi1kZjNkMDQ3NWY3MmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IR-GauravKPIMachine",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
